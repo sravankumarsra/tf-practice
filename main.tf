@@ -1,9 +1,11 @@
-resource "aws_instance" "my_vm" {
- ami           = var.ami //Ubuntu AMI
- instance_type = var.instance_type
-
- tags = {
-   Name = var.name_tag,
- }
+provider "aws" {
+    region = "us-east-1"  # Set your desired AWS region
 }
 
+resource "aws_instance" "example" {
+    ami           = "ami-06aa3f7caf3a30282"  # Specify an appropriate AMI ID
+    instance_type = "t2.micro"
+tags = {
+ Name = "Example-Instance"
+}
+}
